@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vendas</title>
+</head>
+<body>
+    <h1>Vendas</h1>
+
+<form action="/vendaFiltrada" method="get">
+    <label>Data Inicial:
+        <input type="date" id="dataInicial" name="dataInicial">
+    </label>
+
+    <label>Data Final:
+        <input type="date" id="dataFinal" name="dataFinal">
+    </label>
+    <button type="submit">Buscar</button>
+</form>
+
+<h2>Listar Vendas</h2>
+<table>
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>observacoes</th>
+        <th>data</th>
+        <th>total</th>
+        <th>cliente</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="venda: ${vendas}">
+        <td th:text="${venda.id}" ></td>
+        <td th:text="${venda.observacoes}" ></td>
+        <td th:text="${venda.data}" ></td>
+        <td th:text="${venda.total}" ></td>
+        <td th:text="${venda.cliente}" ></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
