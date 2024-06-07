@@ -29,9 +29,8 @@ public class ItemVenda implements Serializable {
     @JoinColumn(name = "fk_produto_id", nullable = false)
     private Produto produto;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "fk_venda_id", nullable = false)
-//    @JsonIgnore
-//    private Venda venda;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_venda_id")
+    private Venda venda;
 
 }

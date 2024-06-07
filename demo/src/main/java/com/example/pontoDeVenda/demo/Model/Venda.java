@@ -26,7 +26,12 @@ public class Venda implements Serializable {
     @JoinColumn(name = "fk_cliente_id", nullable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy = "venda", orphanRemoval = true, cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @OneToMany(
+            mappedBy = "venda",
+            orphanRemoval = true,
+            cascade = CascadeType.PERSIST,
+            fetch = FetchType.EAGER
+    )
     private List<ItemVenda> itens = new ArrayList<>();
 
 }

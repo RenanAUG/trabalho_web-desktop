@@ -15,7 +15,8 @@ import java.util.List;
 public interface VendaRepository extends JpaRepository<Venda, Integer> {
 
     @Query(
-            "SELECT v FROM Venda v WHERE v.data BETWEEN :dataInicial AND :dataFinal"
+            "SELECT v FROM Venda v " +
+                    "WHERE v.data BETWEEN :dataInicial AND :dataFinal"
     )
     List<Venda> findByDataInicialAndDataFinal(
             @Param("dataInicial") LocalDate dataInicial,

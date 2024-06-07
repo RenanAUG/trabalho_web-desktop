@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -23,11 +24,15 @@ public class VendaWebController {
     @GetMapping("/vendaFiltrada")
     public String findByDataInicialAndDataFinal(
             @RequestParam(value = "dataInicial", required = false) LocalDate dataInicial,
-            @RequestParam(value = "dataFinal",required = false) LocalDate dataFinal,
+            @RequestParam(value = "dataFinal", required = false) LocalDate dataFinal,
             Model model
     ) {
         List<Venda> vendas = vendaService.findByDataInicialAndDataFinal(dataInicial, dataFinal);
+
+        LocalDate today = LocalDate.now();
+        model.addAttribute("dataInicial", today);
+        model.addAttribute("dataFinal", today);
         model.addAttribute("vendas", vendas);
-        return "vendaFiltrada";
+        return "venda-filtrada";
     }
 }
