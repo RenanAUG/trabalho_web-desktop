@@ -4,7 +4,7 @@
  */
 package pontodevenda;
 
-import frames.FrameFinalizacaoVenda;
+import View.FrameFinalizacaoVenda;
 
 /**
  *

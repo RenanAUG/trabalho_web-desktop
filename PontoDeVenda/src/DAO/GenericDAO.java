@@ -22,8 +22,6 @@ public abstract class GenericDAO<Objeto> {
 
     public abstract boolean salvar(Objeto obj);
 
-    public abstract boolean atualizar(Objeto obj);
-
     public ArrayList<Objeto> retornaLista(String sql){
 
         PreparedStatement ps;
@@ -73,23 +71,23 @@ public abstract class GenericDAO<Objeto> {
         return obj;
     }
 
-    public void delete(int id, String tabela,
-                       String chavePrimaria){
-
-        PreparedStatement ps;
-
-        try {
-            ps = conn.prepareStatement("DELETE FROM "
-                    + "public.\""+tabela+"\" WHERE \""+
-                    chavePrimaria+"\" = ? ");
-
-            ps.setInt(1, id);
-            ps.executeUpdate();
-            ps.close();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(GenericDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
+//    public void delete(int id, String tabela,
+//                       String chavePrimaria){
+//
+//        PreparedStatement ps;
+//
+//        try {
+//            ps = conn.prepareStatement("DELETE FROM "
+//                    + "public.\""+tabela+"\" WHERE \""+
+//                    chavePrimaria+"\" = ? ");
+//
+//            ps.setInt(1, id);
+//            ps.executeUpdate();
+//            ps.close();
+//
+//        } catch (SQLException ex) {
+//            Logger.getLogger(GenericDAO.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//
+//    }
 }
